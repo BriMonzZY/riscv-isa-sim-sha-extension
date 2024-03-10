@@ -5057,16 +5057,31 @@ fi
 
 
 
-    # Determine if this is a required or an optional subproject
 
 
 
-    # Determine if there is a group with the same name
+
+
+    # Add subproject to our running list
+
+    subprojects="$subprojects sha2"
+
+    # Process the subproject appropriately. If enabled add it to the
+    # $enabled_subprojects running shell variable, set a
+    # SUBPROJECT_ENABLED C define, and include the appropriate
+    # 'subproject.ac'.
+
+      { $as_echo "$as_me:${as_lineno-$LINENO}: configuring default subproject : sha2" >&5
+$as_echo "$as_me: configuring default subproject : sha2" >&6;}
+      ac_config_files="$ac_config_files sha2.mk:sha2/sha2.mk.in"
+
+      enable_sha2_sproj="yes"
+      subprojects_enabled="$subprojects_enabled sha2"
+
+$as_echo "#define SHA2_ENABLED /**/" >>confdefs.h
 
 
 
-    # Create variations of the subproject name suitable for use as a CPP
-    # enabled define, a shell enabled variable, and a shell function
 
 
 
@@ -6472,6 +6487,8 @@ ac_config_files="$ac_config_files riscv-disasm.pc"
 
 ac_config_files="$ac_config_files riscv-sha3.pc"
 
+ac_config_files="$ac_config_files riscv-sha2.pc"
+
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -7166,6 +7183,7 @@ do
     "fesvr.mk") CONFIG_FILES="$CONFIG_FILES fesvr.mk:fesvr/fesvr.mk.in" ;;
     "riscv.mk") CONFIG_FILES="$CONFIG_FILES riscv.mk:riscv/riscv.mk.in" ;;
     "sha3.mk") CONFIG_FILES="$CONFIG_FILES sha3.mk:sha3/sha3.mk.in" ;;
+    "sha2.mk") CONFIG_FILES="$CONFIG_FILES sha2.mk:sha2/sha2.mk.in" ;;
     "disasm.mk") CONFIG_FILES="$CONFIG_FILES disasm.mk:disasm/disasm.mk.in" ;;
     "customext.mk") CONFIG_FILES="$CONFIG_FILES customext.mk:customext/customext.mk.in" ;;
     "fdt.mk") CONFIG_FILES="$CONFIG_FILES fdt.mk:fdt/fdt.mk.in" ;;
@@ -7177,6 +7195,7 @@ do
     "riscv-fesvr.pc") CONFIG_FILES="$CONFIG_FILES riscv-fesvr.pc" ;;
     "riscv-disasm.pc") CONFIG_FILES="$CONFIG_FILES riscv-disasm.pc" ;;
     "riscv-sha3.pc") CONFIG_FILES="$CONFIG_FILES riscv-sha3.pc" ;;
+    "riscv-sha2.pc") CONFIG_FILES="$CONFIG_FILES riscv-sha2.pc" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

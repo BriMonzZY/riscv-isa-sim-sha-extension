@@ -1,0 +1,16 @@
+sha2_subproject_deps = \
+	riscv \
+
+sha2_install_prog_srcs = \
+
+sha2_hdrs = \
+	sha2.h \
+
+sha2_srcs = \
+	sha2.cc \
+
+sha2_test_srcs =
+
+sha2_CFLAGS = -fPIC
+
+sha2_install_shared_lib = yes
